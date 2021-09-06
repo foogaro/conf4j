@@ -1,5 +1,5 @@
 # CONF4J - Configuration for Java
-A simple library to load system properties or environment variables.
+A simple library to independently load system properties or environment variables.
 
 # Usage
 
