@@ -1,6 +1,18 @@
 # CONF4J - Configuration for Java
 A simple library to load system properties or environment variables.
 
+# Usage
+
+## Maven
+```xml
+<dependency>
+    <groupId>com.foogaro.util</groupId>
+    <artifactId>conf4j</artifactId>
+    <version>1.0.0</version>
+</dependency>
+```
+
+## Java
 Basically, for system properties, instead of doing the following
 ```java
 class Foo {
@@ -37,11 +49,11 @@ class Foo {
 
 # Why
 
-Since I moved to containers, most of the time I had to access application's configuration as system properties and/or environment variables.
+Since I moved to containers, most of the time I had to access application's configuration settings as system properties and/or environment variables.
 I didn't look/google too much around, and it was easier to implement the Conf4J class.
 
 # Conclusion
-So there might be something more sophisticated somewhere, in that case, go for it.
+There might be something more sophisticated out there, in that case, go for it.
 
-Ciao,
+Ciao,<br>
 Luigi
