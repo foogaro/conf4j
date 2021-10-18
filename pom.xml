@@ -5,7 +5,7 @@
 
     <groupId>com.foogaro.util</groupId>
     <artifactId>conf4j</artifactId>
-    <version>1.0.0</version>
+    <version>1.1.0</version>
     <packaging>jar</packaging>
 
     <name>Conf4J</name>
@@ -37,12 +37,12 @@
 
     <distributionManagement>
         <snapshotRepository>
-            <id>sonatype-nexus-snapshots</id>
+            <id>ossrh</id>
             <name>Sonatype Nexus Snapshots</name>
             <url>https://s01.oss.sonatype.org/content/repositories/snapshots</url>
         </snapshotRepository>
         <repository>
-            <id>sonatype-nexus-staging</id>
+            <id>ossrh</id>
             <name>Nexus Release Repository</name>
             <url>https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/</url>
         </repository>
@@ -56,6 +56,18 @@
 
     <build>
         <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.1</version>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                    <compilerArgument>-Xlint:all</compilerArgument>
+                    <showWarnings>true</showWarnings>
+                    <showDeprecation>true</showDeprecation>
+                </configuration>
+            </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-source-plugin</artifactId>
@@ -97,15 +109,15 @@
                 </executions>
             </plugin>
             <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.8.1</version>
+                <groupId>org.sonatype.plugins</groupId>
+                <artifactId>nexus-staging-maven-plugin</artifactId>
+                <version>1.6.7</version>
+                <extensions>true</extensions>
                 <configuration>
-                    <source>1.8</source>
-                    <target>1.8</target>
-                    <compilerArgument>-Xlint:all</compilerArgument>
-                    <showWarnings>true</showWarnings>
-                    <showDeprecation>true</showDeprecation>
+                    <stagingRepositoryId>ossrh</stagingRepositoryId>
+                    <serverId>ossrh</serverId>
+                    <nexusUrl>https://s01.oss.sonatype.org/</nexusUrl>
+                    <autoReleaseAfterClose>true</autoReleaseAfterClose>
                 </configuration>
             </plugin>
         </plugins>
